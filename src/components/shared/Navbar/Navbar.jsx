@@ -1,12 +1,22 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProvider';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                navigate('/')
+            })
+            .catch(error => console.log(error))
+    }
     const navItems = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/colleges' >Colleges</NavLink></li>
-        <li><NavLink >My College</NavLink></li>
-        <li><NavLink >Admission</NavLink></li>
+        <li><NavLink to='/admission' >Admission</NavLink></li>
+        <li><NavLink to='/mycollege' >My College</NavLink></li>
     </>
     return (
         <div className="navbar bg-black text-white font-bold opacity-50 fixed z-30 w-full px-10">
@@ -19,7 +29,7 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a className="btn btn-ghost normal-case text-xl">College Hub</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -27,7 +37,12 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                {user?.displayName && <p className='mr-2'>{user?.displayName}</p>}
+                {user ?
+                    <button onClick={handleLogOut} className='btn btn-sm btn-error'>Log Out</button> :
+                    <Link to='/login'><button className='btn btn-sm btn-info'>Login</button></Link>
+
+                }
             </div>
         </div>
     );

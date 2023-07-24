@@ -3,11 +3,19 @@ import MainLayout from "./Layouts/MainLayout";
 import Home from "../assets/pages/Home/Home";
 import CollegeDetails from "../assets/pages/Details/CollegeDetails";
 import Colleges from "../assets/pages/Colleges/Colleges";
+import Register from "../assets/pages/Register/Register";
+import Login from "../assets/pages/Login/Login";
+import PrivateRout from "./PrivateRout";
+import Admission from "../assets/pages/Admission/Admission";
+import AdmissionForm from "../assets/pages/Admission/AdmissionForm";
+import MyCollege from "../assets/pages/MyCollege/MyCollege";
+import ErrorPage from "../assets/pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
@@ -19,7 +27,27 @@ const router = createBrowserRouter([
             },
             {
                 path: "/collegeDelails/:id",
-                element: <CollegeDetails></CollegeDetails>
+                element: <PrivateRout><CollegeDetails></CollegeDetails></PrivateRout>
+            },
+            {
+                path: "/register",
+                element: <Register></Register>
+            },
+            {
+                path: "/admission",
+                element: <PrivateRout><Admission></Admission></PrivateRout>
+            },
+            {
+                path: "/admissionform/:id",
+                element: <PrivateRout><AdmissionForm></AdmissionForm></PrivateRout>
+            },
+            {
+                path: "/mycollege",
+                element: <PrivateRout><MyCollege></MyCollege></PrivateRout>
+            },
+            {
+                path: "/login",
+                element: <Login></Login>
             }
         ]
     },

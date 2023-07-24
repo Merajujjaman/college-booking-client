@@ -1,11 +1,15 @@
 import React from 'react';
 
 const Footer = () => {
-    
+
     return (
-       <div>
-        
-       </div>
+        <>
+            <footer className="footer footer-center p-20 bg-neutral text-neutral-content mx-2 md:mx-10">
+                <div>
+                    <p>Copyright © 2023 - All right reserved by College Hub Ltd</p>
+                </div>
+            </footer>
+        </>
     );
 };
 
