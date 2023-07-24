@@ -5,6 +5,7 @@ import HomeCollegeCard from '../../../components/Card/HomeCollegeCard';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import Gallery from '../../../components/Gallery/Gallery';
 import Reviews from '../../../components/Reviews/Reviews';
+import About from '../../../components/About/About';
 
 const Home = () => {
     const [colleges, setColleges] = useState([])
@@ -16,6 +17,9 @@ const Home = () => {
     return (
         <div className='mx-2 md:mx-10'>
             <Banner></Banner>
+            <div className='my-10 md:my-20'>
+                <About></About>
+            </div>
             <SectionTitle title={"Famous Colleges"}></SectionTitle>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
                 {

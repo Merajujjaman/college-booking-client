@@ -2,7 +2,7 @@ import React from 'react';
 import SectionTitle from '../SectionTitle/SectionTitle';
 
 const DetailsCard = ({ info }) => {
-    console.log(info?.sportsCategories);
+    // console.log(info?.sportsCategories);
     return (
         <>
             <div className="hero min-h-screen bg-base-200">

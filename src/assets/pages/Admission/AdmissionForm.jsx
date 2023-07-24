@@ -68,7 +68,7 @@ const AdmissionForm = () => {
     }
 
     return (
-        <div className='mx-2 md:mx-10 py-10'>
+        <div className='mx-2 md:mx-10 min-h-[calc(100vh-180px)] pt-10'>
             <SectionTitle title={"Admission Form"}></SectionTitle>
             <form onSubmit={handleAdmission} className='w-full md:w-2/3 mx-auto py-10' >
 

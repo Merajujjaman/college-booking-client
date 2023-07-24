@@ -4,7 +4,7 @@ const Footer = () => {
 
     return (
         <>
-            <footer className="footer footer-center p-20 bg-neutral text-neutral-content mx-2 md:mx-10">
+            <footer className="footer footer-center p-20 bg-neutral text-neutral-content">
                 <div>
                     <p>Copyright © 2023 - All right reserved by College Hub Ltd</p>
                 </div>
